@@ -12,15 +12,15 @@ class Formatter {
   static titleize(string) {
     let exceptions = [ 'the', 'a', 'an', 'but', 'of', 'and', 'for', 'at', 'by', 'from' ]
     let result = [];
-    let arrayOfWords = string.split( " " )
-    for ( let n = 0; n < arrayOfWords.length; n++ ) {
+    let wordsArray = string.split( " " )
+    for ( let n = 0; n < wordsArray.length; n++ ) {
       if ( n == 0 ) {
-        result.push( this.capitalize( arrayOfWords[ n ] ) )
+        result.push( this.capitalize( wordsArray[ n ] ) )
       } else {
-        if ( exceptions.includes( arrayOfWords[ n ] ) ) {
-          result.push( arrayOfWords[ n ] )
+        if ( exceptions.includes( wordsArray[ n ] ) ) {
+          result.push( wordsArray[ n ] )
         } else {
-          result.push( this.capitalize( arrayOfWords[ n ] ) )
+          result.push( this.capitalize( wordsArray[ n ] ) )
         }
       }
 
