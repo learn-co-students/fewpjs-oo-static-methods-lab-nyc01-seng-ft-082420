@@ -10,22 +10,22 @@ class Formatter {
 
 
   static titleize(string) {
-    let exceptions = [ 'the', 'a', 'an', 'but', 'of', 'and', 'for', 'at', 'by', 'from' ]
+    let exceptions = ['the', 'a', 'an', 'but', 'of', 'and', 'for', 'at', 'by', 'from']
     let result = [];
-    let wordsArray = string.split( " " )
-    for ( let n = 0; n < wordsArray.length; n++ ) {
-      if ( n == 0 ) {
-        result.push( this.capitalize( wordsArray[ n ] ) )
+    let wordsArray = string.split(" ")
+    for ( let i = 0; i < wordsArray.length; i++ ) {
+      if (i == 0) {
+        result.push( this.capitalize( wordsArray[i]))
       } else {
-        if ( exceptions.includes( wordsArray[ n ] ) ) {
-          result.push( wordsArray[ n ] )
+        if ( exceptions.includes( wordsArray[i])) {
+          result.push(wordsArray[i])
         } else {
-          result.push( this.capitalize( wordsArray[ n ] ) )
+          result.push(this.capitalize(wordsArray[i]))
         }
       }
 
     }
-    return result.join( " " );
+    return result.join(" ");
   }
 
 }
