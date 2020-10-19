@@ -1,17 +1,26 @@
 class Formatter {
   static capitalize(data){
-    return data.capitalize()
+    return data.charAt(0).toUpperCase() + data.slice(1);
   }
 
   static sanitize(data){
-    return data.replace(/[^A-Za-z0-9-']+/g, '');
+    return data.replace(/[^\w\s-']+/g, '');
   }
 
   static titleize(data){
-    const dataArr = data.split(" ")
+    let dataArr = data.split(" ")
+    const capitalizedArr = []
+    capitalizedArr.push(Formatter.capitalize(dataArr[0]))
+    dataArr = dataArr.slice(1)
+    const exclusion = new Set(['the', 'a', 'an', 'but', 'of', 'and', 'for', 'at', 'by', 'from'])
     dataArr.forEach((element) => {
-      element.capitalize()
+      if(exclusion.has(element)){
+        capitalizedArr.push(element);
+      }else{
+        let cap = Formatter.capitalize(element)
+        capitalizedArr.push(cap);
+      }
     });
-
+    return capitalizedArr.join(' ')
   }
 }
