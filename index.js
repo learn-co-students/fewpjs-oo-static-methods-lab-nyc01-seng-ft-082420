@@ -10,14 +10,13 @@ class Formatter {
 
   static titleize(str) {
     const words = str.split(" ")
-    const res = []
     for (let i = 0; i < words.length; i++) {
       if (i !== 0 && ["the", "a", "an", "but", "of", "and", "for", "at", "by", "from"].includes(words[i])) {
-        res.push(words[i]);
+        continue;
       } else {
-        res.push(words[i][0].toUpperCase() + words[i].slice(1))
+        words[i] = words[i][0].toUpperCase() + words[i].slice(1)
       }
     }
-    return res.join(" ")
+    return words.join(" ")
   }
 }
